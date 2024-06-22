@@ -1,4 +1,8 @@
 package poker;
 
-public class Card {
+public interface Card {
+    //create method
+    int getCardID();
+    int getNumber();
+    CardSuit getSuit();
 }
