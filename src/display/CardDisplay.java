@@ -1,5 +1,9 @@
 package display;
 
+import poker.Card;
+import poker.CardImp;
+import poker.CardSuit;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +13,7 @@ import java.io.IOException;
 
 public class CardDisplay extends JPanel {
 
-    static final String[] SUITS = {"S", "H", "C", "D"};
+    static final String[] SUITS = {"S", "H", "D", "C"};
     static final String[] NUMBERS = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     static final int CARD_WIDTH = 80;
     static final int CARD_HEIGHT = 120;
@@ -17,10 +21,10 @@ public class CardDisplay extends JPanel {
     private final int suit;
     private final int number;
 
-    public CardDisplay(int number, int suit)
+    public CardDisplay(Card card)
     {
-        this.suit = suit;
-        this.number = number;
+        this.suit = card.getSuit().ordinal();
+        this.number = card.getNumber();
     }
 
     @Override
@@ -45,7 +49,8 @@ public class CardDisplay extends JPanel {
 
     public static void main(String[] args) {
         JFrame frame = buildFrame();
-        JPanel pane = new CardDisplay(0, 1);
+        Card card = new CardImp(12, CardSuit.CLUBS);
+        JPanel pane = new CardDisplay(card);
         frame.add(pane);
     }
 
