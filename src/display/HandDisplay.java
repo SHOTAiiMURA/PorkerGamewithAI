@@ -1,9 +1,6 @@
 package display;
 
-import poker.Card;
-import poker.CardImp;
-import poker.CardSuit;
-import poker.Hand;
+import poker.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
