@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HandImp implements Hand {
-    private List<Card> cards;
+    protected List<Card> cards;
 
 
     public HandImp() {
@@ -31,6 +31,11 @@ public class HandImp implements Hand {
     @Override
     public Card get(int index) {
         return cards.get(index);
+    }
+
+    @Override
+    public List<Card> getCards() {
+        return new ArrayList<>(cards);
     }
 
     @Override
