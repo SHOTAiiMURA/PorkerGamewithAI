@@ -25,6 +25,7 @@ public class CardDisplay extends JPanel {
     {
         this.suit = card.getSuit().ordinal();
         this.number = card.getNumber();
+        setSize(CARD_WIDTH, CARD_HEIGHT);
     }
 
     @Override
