@@ -52,27 +52,11 @@ public class HandDisplay extends JPanel {
     public static void main(String[] args) {
         JFrame frame = buildFrame();
 
-        Hand hand = new Hand() {
-            @Override
-            public void addCard(Card card) {
-
-            }
-
-            @Override
-            public void addCards(List<Card> cards) {
-
-            }
-
-            @Override
-            public int size() {
-                return 5;
-            }
-
-            @Override
-            public Card get(int index) {
-                return new CardImp(0, CardSuit.SPADES);
-            }
-        };
+        Hand hand = new HandImp();
+        hand.addCard(new CardImp(0, CardSuit.SPADES));
+        hand.addCard(new CardImp(0, CardSuit.HEARTS));
+        hand.addCard(new CardImp(0, CardSuit.CLUBS));
+        hand.addCard(new CardImp(0, CardSuit.DIAMONDS));
         JPanel pane = new HandDisplay(hand, 5);
         frame.add(pane);
     }
