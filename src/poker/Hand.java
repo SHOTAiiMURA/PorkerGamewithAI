@@ -7,4 +7,5 @@ public interface Hand {
     void addCards(List<Card> cards);
     int size();
     Card get(int index);
+    List<Card> getCards();
 }
