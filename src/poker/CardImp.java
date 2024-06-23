@@ -31,4 +31,10 @@ public class CardImp implements Card {
     public CardSuit getSuit() {
         return suit;
     }
+
+    @Override
+    public String toString() {
+        return suit.name() + " " + number;
+    }
+
 }
