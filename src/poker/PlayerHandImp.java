@@ -42,6 +42,7 @@ public class PlayerHandImp extends HandImp implements PlayerHand{
         if (result_pairs.size()>=2){
             isTwoPair = true;
         }
+
         // check three of a kind
         for (Card card1 : combinedHand.getCards()) {
             for(Card card2 : combinedHand.getCards()) {
