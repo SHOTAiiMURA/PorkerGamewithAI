@@ -1,5 +1,8 @@
 package poker;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PlayerHandImp extends HandImp implements PlayerHand{
     @Override
     public Rank evalHandRank(TableHand hand) {
@@ -16,9 +19,25 @@ public class PlayerHandImp extends HandImp implements PlayerHand{
 
 
         // check one pair
-
+        Set<Integer> result_pairs = new HashSet<>();
+        int counter = 0;
+        for (Card card1 : combinedHand.getCards()) {
+            for(Card card2 : combinedHand.getCards()) {
+                if(card1.getNumber()==card2.getNumber()) {
+                    counter += 1;
+                }
+            }
+            if (counter ==2){
+                result_pairs.add(card1.getNumber());
+            }
+        }
+        if (result_pairs.size()==1){
+            isOnePair = true;
+        }
         // check two pair
-
+        if (result_pairs.size()>=2){
+            isTwoPair = true;
+        }
         // check three of a kind
 
         // check four of a kind
