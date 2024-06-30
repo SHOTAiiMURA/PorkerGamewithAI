@@ -50,7 +50,7 @@ public class CardDisplay extends JPanel {
 
     public static void main(String[] args) {
         JFrame frame = buildFrame();
-        Card card = new CardImp(12, CardSuit.CLUBS);
+        Card card = new CardImp(0, CardSuit.CLUBS);
         JPanel pane = new CardDisplay(card);
         frame.add(pane);
     }
