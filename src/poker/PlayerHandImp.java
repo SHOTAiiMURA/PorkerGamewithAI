@@ -3,6 +3,8 @@ package poker;
 import java.util.*;
 
 public class PlayerHandImp extends HandImp implements PlayerHand{
+    private ArrayList<Integer> number;
+
     @Override
     public Rank evalHandRank(TableHand hand) {
         Hand combinedHand = new HandImp();
@@ -72,19 +74,28 @@ public class PlayerHandImp extends HandImp implements PlayerHand{
         // use number
         //カードを数字が大きい順にソートする。
         //配列の1番目から4番目（後ろから二番目）まで、差が１であるか判別する。（差が１でなければその時点でFalse.）例）８と８は０だからストレートの組み合わせは不可。KとAも不可。
-        ArrayList<Integer> result_straight = new ArrayList<>();
-        Collections.sort(combinedHand, Collections.reverseOrder());
-        for(int i = 0; i < combinedHand.size(3); i++){
-            if(card[i]-card[i+1] == 1){
+        Set<Integer> setNumbers = new HashSet<>(number);
+        number = new ArrayList<>(setNumbers);
+
+        // Sorted
+        Collections.sort(number, Collections.reverseOrder());
+
+        //boolean isStraight = false;
+        int cnt = 0;
+        for(int i = 0; i < number.size() - 1; i++)
+        {
+            if(number.get(i) - number.get(i + 1) == 1)
+            {
+                cnt += 1;
+                // cnt++;
+            }else{
+                cnt = 0;
+            }
+            if(cnt >= 5)
+            {
                 isStraight = true;
+                break;
             }
-            else if{
-                if(カード[4] - カード[3] == 1 || カード[0] == 5 && カード[4] == "A");
-                    isStraight = true;
-
-            }
-            //二個目のIFぶんはいらない感じがする。
-
         }
         // check flush
         Set <String> result_flush = new HashSet<>();
